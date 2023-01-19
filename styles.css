@@ -1,146 +1,246 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-	box-sizing: border-box;
+  box-sizing: border-box;
 
-	--header: auto;
-	--main: calc(100vh - calc(var(--header) + var(--footer)));
-	--footer: 40px;
+  --header: 60px;
+  --main: calc(100vh - calc(var(--header) + var(--footer)));
+  --footer: 40px;
 
-	--900: #064e3b;
-	--700: #0f766e;
+  --900: #064e3b;
+  --700: #0f766e;
+  --100: #ccfbf1;
 }
 
 html,
 body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 *,
 *::before,
 *::after {
-	font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 header {
-	height: var(--header);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	box-shadow: 0 0 0 0.2px var(--700);
+  height: var(--header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 0 0.2px var(--700);
 }
 
 header > div {
-	display: flex;
-	align-items: center;
-	gap: 0.25rem;
-	margin: 0.2rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.2rem 1rem;
 }
 
 .logo {
-	color: var(--900);
-	font-size: 2.2rem;
-	font-weight: 800;
+  color: var(--900);
+  font-size: 2.2rem;
+  font-weight: 800;
 }
 
 #ry {
-	opacity: 0.15;
+  opacity: 0.15;
 }
 
-.add-book-button {
-	background-color: var(--900);
-	color: #ccfbf1;
-	font-weight: 700;
-	padding: 8px 10px;
-	border-radius: 1rem;
-	cursor: pointer;
+.show-button {
+  background-color: var(--900);
+  color: #ccfbf1;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 1rem;
+  cursor: pointer;
 }
-
+/* start main style and layout */
 main {
-	height: var(--main);
+  display: grid;
+  height: var(--main);
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+  overflow: auto;
 }
 
+main > div {
+  border-radius: 1rem;
+}
 /* Start form style and layout */
 
 .show {
-	visibility: visible !important;
+  visibility: visible !important;
 }
 
 .form-container {
-	display: flex;
-	position: absolute;
-	visibility: hidden;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	width: 100%;
+  display: flex;
+  position: absolute;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .form {
-	position: absolute;
-	background-color: brown;
-	height: auto;
-	visibility: hidden;
-	background-color: #0d9488;
-	padding: 0.5rem 1rem;
-	border-radius: 1rem;
+  position: absolute;
+  background-color: brown;
+  height: auto;
+  visibility: hidden;
+  background-color: #0d9488;
+  padding: 3rem 1rem 1rem 1rem;
+  border-radius: 1rem;
 }
 
 .form {
-	display: grid;
-	grid-template-rows: repeat(4, 1fr);
-	align-items: center;
-	justify-items: start;
-	gap: 1rem;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  justify-items: start;
+  gap: 1rem;
 }
 
 input:not([type='checkbox']) {
-	display: block;
-	font-size: 1rem;
-	line-height: 2;
-	color: #134e4a;
-	font-weight: 500;
-	border-radius: 0.5rem;
-	border: none;
-	padding: 0.2rem 0.5rem;
-	margin-top: 5px;
+  display: block;
+  font-size: 1rem;
+  line-height: 2;
+  color: #134e4a;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  margin-top: 5px;
 }
 
 input:focus {
-	outline: #134e4a solid 1px;
+  outline: #134e4a solid 1px;
 }
 
 [type='checkbox'] {
-	background-color: #134e4a;
+  background-color: #134e4a;
 }
 
 .label {
-	color: #ccfbf1;
-	font-weight: 500;
-	letter-spacing: 1px;
+  color: #ccfbf1;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .add-button-cont {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	height: 100%;
-	width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
 }
 
 button.add {
-	background-color: var(--main);
-	border: 1px solid #ccfbf1;
-	border-radius: 0.5rem;
-	color: #ccfbf1;
-	font-weight: 500;
-	font-size: 2rem;
-	padding: 0.1rem 0.6rem;
-	cursor: pointer;
+  background-color: var(--main);
+  border: 1px solid #ccfbf1;
+  border-radius: 0.5rem;
+  color: #ccfbf1;
+  font-weight: 500;
+  font-size: 2rem;
+  padding: 0.1rem 0.6rem;
+  cursor: pointer;
 }
 
 .required {
-	color: rgb(255, 15, 15);
+  color: rgb(255, 15, 15);
+}
+
+.book {
+  display: grid;
+  background-color: #115e59;
+  border: 2px solid #064e3b;
+  grid-template: 5fr 2fr 1.2fr 1fr 2fr / repeat(2, 1fr);
+  grid-template-areas:
+    'image-holder image-holder'
+    'book-name    book-name'
+    'author       author'
+    'pages        read'
+    'edit         erase';
+  height: 350px;
+  width: 250px;
+  color: #f0fdfa;
+}
+
+.book > div {
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.book-image {
+  grid-area: image-holder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.1px solid #f0fdfa;
+}
+
+.book-image > .image {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  border: 2px solid #ccfbf1;
+  background-image: url('icons/book.png');
+  background-size: cover;
+}
+
+.book-name {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  grid-area: book-name;
+  padding: 4px;
+  border-bottom: 1px solid #ccfbf1;
+}
+
+.book-author {
+  grid-area: author;
+  border-bottom: 1px solid #ccfbf1;
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.6px;
+  font-weight: 300;
+}
+
+.book-pages {
+  grid-area: pages;
+  border-right: 1px solid #ccfbf1;
+  border-bottom: 1px solid #ccfbf1;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.book-read {
+  grid-area: read;
+  border-bottom: 1px solid #ccfbf1;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.book-edit {
+  display: flex;
+  justify-content: center;
+  grid-area: edit;
+  color: rgb(219, 219, 113);
+  font-weight: 600;
+}
+
+.book-remove {
+  display: flex;
+  justify-content: center;
+  grid-area: erase;
+  color: rgb(255, 103, 103);
+  font-weight: 600;
 }
